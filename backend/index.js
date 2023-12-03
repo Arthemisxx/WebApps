@@ -38,30 +38,36 @@ httpServer.get('/call/:number1/:number2', (req, res) => {
 })
 
 httpServer.post('/call/', async (req, res) => {
-    const number1 = req.body.number;
-    const number2 = 'XXXXXXXXX' // tutaj dejemy swój numer
-    console.log('Dzwonie', number1, number2)
-    const bridge = await dialer.call(number1, number2);
-    let oldStatus = null
-    let interval = setInterval(async () => {
-        let currentStatus = await bridge.getStatus();
-        if (currentStatus !== oldStatus) {
-            oldStatus = currentStatus
-            io.emit('status', currentStatus)
-        }
-        if (
-            currentStatus === "ANSWERED" ||
-            currentStatus === "FAILED" ||
-            currentStatus === "BUSY" ||
-            currentStatus === "NO ANSWER"
-        ) {
-            console.log('stop')
-            clearInterval(interval)
-        }
-    }, 1000)
-    res.json({
-        id: '123', status: bridge.STATUSES.NEW
-    });
+    try {
+        const number1 = req.body.number;
+        const number2 = '111111111' // tutaj dejemy swój numer
+        console.log('Dzwonie', number1, number2)
+        const bridge = await dialer.call(number1, number2);
+        let oldStatus = null
+        let interval = setInterval(async () => {
+            let currentStatus = await bridge.getStatus();
+            if (currentStatus !== oldStatus) {
+                oldStatus = currentStatus
+                io.emit('status', currentStatus)
+            }
+            if (
+                currentStatus === "ANSWERED" ||
+                currentStatus === "FAILED" ||
+                currentStatus === "BUSY" ||
+                currentStatus === "NO ANSWER"
+            ) {
+                console.log('stop')
+                clearInterval(interval)
+            }
+        }, 1000)
+        res.json({
+            id: '123', status: bridge.STATUSES.NEW
+        });
+    } catch (err) {
+        console.log(err);
+        io.emit('status', 'ERR');
+
+    }
 
 })
 

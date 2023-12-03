@@ -1,22 +1,23 @@
 <template>
-<div class="window">
  <router-view/>
- </div>
 </template>
-
+ 
 
 <style>
 
-.window {
-  width: 800px;
-  height: 500px;
+
+.window-ringing{
+  width: 320px;
+  height: 650px;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   margin: auto;
-  background: rgb(255, 204, 0);
+  background: url(/workspace/WebApps/front/src/assets/callingbackground.png) no-repeat fixed center;
+  background-size: 320px;
+  z-index: 0;
   border-radius: 20px;
   box-sizing: border-box;
   padding: 20px;
@@ -24,6 +25,28 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
+
+.window {
+  width: 320px;
+  height: 650px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background: url(/workspace/WebApps/front/src/assets/iphoneBackground1.png) no-repeat fixed center;
+  background-size: 320px;
+  z-index: 0;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+
 .clearfix:after {
   content: "";
   clear: both;
@@ -41,17 +64,18 @@
   text-align: center;
 }
 .text {
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
-  margin-top: 30px;
+  margin-top: 100px;
+  color: #fff;
 }
 .header,
 .form-number {
-  margin-bottom: 50px;
+  margin-bottom: 12px;
 }
 .header {
   margin-top: 50px;
-  font-size: 38px;
+  font-size: 20px;
   font-weight: 600;
 }
 .form-label {
@@ -59,35 +83,99 @@
   font-weight: 600;
 }
 .form-number {
-  width: 400px;
+  width: 200px;
   height: 55px;
   padding: 20px;
   box-sizing: border-box;
-  font-size: 28px;
+  font-size: 25px;
   letter-spacing: 2px;
   text-align: center;
+  border: none;
 }
-.call-button,
+
+
+.grid-item,
 .call-button-bottom {
-  width: 300px;
-  height: 75px;
+  position: relative;
+  width: 60px;
+  height: 60px;
   vertical-align: middle;
   font-size: 22px;
   font-weight: 600;
   line-height: 75px;
-  background: #008000;
+  background: #E5E5E5;
   cursor: pointer;
-  color: #fff;
-  border-radius: 20px;
+  color: black;
+  border: 0cm;
+  border-radius: 50px;
   margin: 0 auto;
+  align-content: center;
+  line-height: 0px
+}
+
+.grid-delete{
+  padding: 22px;
+  font-size: 20px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.grid-item:hover {
+  filter: brightness(80%);
+}
+
+.call-button{
+ position: relative;
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 60px;
+  background: #34C759;
+  cursor: pointer;
+  color: white;
+  border: 0cm;
+  border-radius: 50px;
+  margin: 0 auto;
+  align-content: center;
 }
 
 .call-button-bottom {
-  margin-top: 300px;
+  margin-top: 345px;
 }
 .call-button:hover {
   filter: brightness(80%);
 }
+
+.end-button{
+  background-color: #FF443B;
+
+}
+
+.main {
+  height: 60%;
+  margin-top: 109px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-left: 25px;
+  width: 231px;
+  row-gap: 10px;
+}
+
+.call-item{
+  grid-column: 2;
+}
+
+.end-icon{
+  transform: rotate(135deg);
+}
+
+
+
 .error {
   border: 1px solid #ff0000;
   background: rgb(255, 170, 170);

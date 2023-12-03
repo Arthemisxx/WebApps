@@ -21,6 +21,10 @@ changeView(){
         case 'RINGING':
             router.push({name: 'ringing'});
             break;
+        case 'ERR':
+            location.reload();
+            break;
+       
                
     }
 }
@@ -34,6 +38,7 @@ checkStatus(){
 
     socket.on('status', (status) =>{
         if(status !== this.status){
+            console.log(status);
             this.status = status;
             this.changeView();
         }
