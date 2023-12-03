@@ -5,8 +5,8 @@ Main feature of this app is to make calls between two users (call center).
 # Fronted
 ## Instalation
 1. Go to /front directory
-2. Type in console "npm install"
-3. Next type in "gp env VUE_APP_SERVER_URL=$(gp url 3000)" and "eval $(gp env -e)" 
+2. Type in console "gp env -u VUE_APP_SERVER_URL", "gp env VUE_APP_SERVER_URL=$(gp url 3000)" and "eval $(gp env -e)"
+3. Next type in console "npm install"
 4. Finally type in "npm run serve"
 Frontend should compile and be ready to use.
 
