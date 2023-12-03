@@ -1,12 +1,10 @@
 <template>
- <router-view/>
+  <router-view />
 </template>
  
 
 <style>
-
-
-.window-ringing{
+.window-ringing {
   width: 320px;
   height: 650px;
   position: absolute;
@@ -15,7 +13,8 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  background: url(/workspace/WebApps/front/src/assets/callingbackground.png) no-repeat fixed center;
+  background: url(/workspace/WebApps/front/src/assets/callingbackground.png)
+    no-repeat fixed center;
   background-size: 320px;
   z-index: 0;
   border-radius: 20px;
@@ -35,7 +34,8 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  background: url(/workspace/WebApps/front/src/assets/iphoneBackground1.png) no-repeat fixed center;
+  background: url(/workspace/WebApps/front/src/assets/iphoneBackground1.png)
+    no-repeat fixed center;
   background-size: 320px;
   z-index: 0;
   border-radius: 20px;
@@ -45,7 +45,6 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
-
 
 .clearfix:after {
   content: "";
@@ -93,7 +92,6 @@
   border: none;
 }
 
-
 .grid-item,
 .call-button-bottom {
   position: relative;
@@ -103,17 +101,17 @@
   font-size: 22px;
   font-weight: 600;
   line-height: 75px;
-  background: #E5E5E5;
+  background: #e5e5e5;
   cursor: pointer;
   color: black;
   border: 0cm;
   border-radius: 50px;
   margin: 0 auto;
   align-content: center;
-  line-height: 0px
+  line-height: 0px;
 }
 
-.grid-delete{
+.grid-delete {
   padding: 22px;
   font-size: 20px;
   cursor: pointer;
@@ -124,15 +122,15 @@
   filter: brightness(80%);
 }
 
-.call-button{
- position: relative;
+.call-button {
+  position: relative;
   width: 60px;
   height: 60px;
   vertical-align: middle;
   font-size: 22px;
   font-weight: 600;
   line-height: 60px;
-  background: #34C759;
+  background: #34c759;
   cursor: pointer;
   color: white;
   border: 0cm;
@@ -148,9 +146,8 @@
   filter: brightness(80%);
 }
 
-.end-button{
-  background-color: #FF443B;
-
+.end-button {
+  background-color: #ff443b;
 }
 
 .main {
@@ -166,19 +163,16 @@
   row-gap: 10px;
 }
 
-.call-item{
+.call-item {
   grid-column: 2;
 }
 
-.end-icon{
+.end-icon {
   transform: rotate(135deg);
 }
-
-
 
 .error {
   border: 1px solid #ff0000;
   background: rgb(255, 170, 170);
 }
-
 </style>

@@ -19,7 +19,11 @@
           <font-awesome-icon icon="fa-solid fa-phone" />
         </div>
         <div class="grid-delete">
-          <font-awesome-icon icon="fa-delete-left" id="delete-visibility" @click="deleteNumber()" />
+          <font-awesome-icon
+            icon="fa-delete-left"
+            id="delete-visibility"
+            @click="deleteNumber()"
+          />
         </div>
       </div>
     </div>
@@ -35,40 +39,46 @@ export default {
     };
   },
 
-
   methods: {
-    showDelete(){
-      if(this.number.length === 0) {
-          document.getElementById('delete-visibility').style.visibility="hidden";
+    showDelete() {
+      if (this.number.length === 0) {
+        document.getElementById("delete-visibility").style.visibility =
+          "hidden";
       } else {
-          document.getElementById('delete-visibility').style.visibility="visible";
+        document.getElementById("delete-visibility").style.visibility =
+          "visible";
       }
     },
-    
+
     addNumber(value) {
       this.number = this.number + value;
-      this.showDelete()
+      this.showDelete();
     },
 
-    deleteNumber(){
+    deleteNumber() {
       this.number = this.number.slice(0, -1);
-      this.showDelete()
+      this.showDelete();
     },
 
     async call() {
       try {
-        let responseStream = await fetch(`${process.env.VUE_APP_SERVER_URL}/call`, {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-         },
-         body: JSON.stringify({number: this.number})
-         });
-         let response = await responseStream.json()
-        this.$router.push({ name: `ringing`, params: { callsId: response.id} });
+        let responseStream = await fetch(
+          `${process.env.VUE_APP_SERVER_URL}/call`,
+          {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify({ number: this.number }),
+          }
+        );
+        let response = await responseStream.json();
+        this.$router.push({
+          name: `ringing`,
+          params: { callsId: response.id },
+        });
       } catch (err) {
-          location.reload();
-
+        location.reload();
       }
     },
   },

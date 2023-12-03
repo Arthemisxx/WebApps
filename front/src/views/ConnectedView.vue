@@ -28,7 +28,10 @@ export default {
           if (this.timerCount === 60) {
             this.timerCount = 0;
             this.seconds = "00";
-            if (this.minutes.charAt(0) === "0" && this.minutes.charAt(1) !== "9") {
+            if (
+              this.minutes.charAt(0) === "0" &&
+              this.minutes.charAt(1) !== "9"
+            ) {
               this.minutes = `0${Number(this.minutes.charAt(1)) + 1}`;
             } else if (this.minutes.charAt(1) === "9") {
               this.minutes = `${Number(this.minutes.charAt(0)) + 1}0`;
@@ -36,7 +39,7 @@ export default {
               this.minutes = Number(this.minutes) + 1;
             }
           }
-           if (this.timerCount === 60 && this.minutes === "59") {
+          if (this.timerCount === 60 && this.minutes === "59") {
             this.timerCount = 0;
             this.seconds = "00";
             this.minutes = "00";
