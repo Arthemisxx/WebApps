@@ -7,8 +7,8 @@ const { Server } = require('socket.io');
 
 const config = {
     url: 'https://uni-call.fcc-online.pl',
-    login: 'focus06',
-    password: '#cmju7y5rrbl'
+    login: '<login>',
+    password: '<password>'
 
 };
 
@@ -40,7 +40,7 @@ httpServer.get('/call/:number1/:number2', (req, res) => {
 httpServer.post('/call/', async (req, res) => {
     try {
         const number1 = req.body.number;
-        const number2 = '609996180' // tutaj dejemy swój numer
+        const number2 = '111111111' // tutaj dejemy swój numer
         console.log('Dzwonie', number1, number2)
         const bridge = await dialer.call(number1, number2);
         let oldStatus = null
